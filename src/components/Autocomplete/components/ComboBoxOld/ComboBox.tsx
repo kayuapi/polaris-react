@@ -2,10 +2,14 @@ import React, {useState, useEffect, useCallback} from 'react';
 
 import {useUniqueId} from '../../../../utilities/unique-id';
 import {useToggle} from '../../../../utilities/use-toggle';
-import {OptionList, OptionDescriptor} from '../../../OptionList';
+import {OptionList} from '../../../OptionList';
 import {ActionList} from '../../../ActionList';
 import {Popover, PopoverProps} from '../../../Popover';
-import {ActionListItemDescriptor, Key} from '../../../../types';
+import {
+  ActionListItemDescriptor,
+  Key,
+  OptionDescriptor,
+} from '../../../../types';
 import {KeypressListener} from '../../../KeypressListener';
 import {EventListener} from '../../../EventListener';
 import {useIsomorphicLayoutEffect} from '../../../../utilities/use-isomorphic-layout-effect';

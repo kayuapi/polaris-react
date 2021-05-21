@@ -1,23 +1,28 @@
 import React, {useMemo, useCallback} from 'react';
 
-import type {ActionListItemDescriptor} from '../../types';
+import type {
+  ActionListItemDescriptor,
+  Descriptor,
+  OptionDescriptor,
+} from '../../types';
 import type {PopoverProps} from '../Popover';
+import {isSection} from '../../utilities/options';
 import {useI18n} from '../../utilities/i18n';
 
 import {
   ComboBox,
   ComboBoxOld,
-  ComboBoxOldProps,
   ListBox,
   MappedOption,
   MappedAction,
 } from './components';
+import styles from './Autocomplete.scss';
 
 export interface AutocompleteProps {
   /** A unique identifier for the Autocomplete */
   id?: string;
   /** Collection of options to be listed */
-  options: ComboBoxOldProps['options'];
+  options: Descriptor[];
   /** The selected options */
   selected: string[];
   /** The text field component attached to the list of options */
@@ -68,9 +73,47 @@ export const Autocomplete: React.FunctionComponent<AutocompleteProps> & {
 
   const optionsMarkup = useMemo(() => {
     const conditionalOptions = loading && !willLoadMoreResults ? [] : options;
+
+    if (isSection(conditionalOptions)) {
+      const noOptionsAvailable = conditionalOptions.every(
+        ({options}) => options.length === 0,
+      );
+
+      if (noOptionsAvailable) {
+        return null;
+      }
+
+      const optionsMarkup = conditionalOptions.map(({options, title}) => {
+        if (options.length === 0) {
+          return null;
+        }
+
+        const optionMarkup = options.map((opt) => (
+          <MappedOption
+            {...opt}
+            key={opt.id || opt.value}
+            selected={selected.includes(opt.value)}
+            singleSelection={!allowMultiple}
+          />
+        ));
+
+        return (
+          <ListBox.Section
+            divider={false}
+            title={<ListBox.Header>{title}</ListBox.Header>}
+            key={title}
+          >
+            {optionMarkup}
+          </ListBox.Section>
+        );
+      });
+
+      return <div className={styles.SectionWrapper}>{optionsMarkup}</div>;
+    }
+
     const optionList =
       conditionalOptions.length > 0
-        ? conditionalOptions.map((option) => (
+        ? (conditionalOptions as OptionDescriptor[]).map((option) => (
             <MappedOption
               {...option}
               key={option.id || option.value}

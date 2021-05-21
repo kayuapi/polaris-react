@@ -7,6 +7,9 @@ Use [the changelog guidelines](https://git.io/polaris-changelog-guidelines) to f
 ### Enhancements
 
 - Prevented `KeypressListener` attaching/detaching on every render ([#4173](https://github.com/Shopify/polaris-react/pull/4173))
+- Added support for sectioned options in `Autocomplete` [#4221](https://github.com/Shopify/polaris-react/pull/4221)
+
+### Bug fixes
 
 ### Bug fixes
 
