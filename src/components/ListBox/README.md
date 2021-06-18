@@ -4,14 +4,12 @@ category: Lists and tables
 keywords:
   - list
   - listbox
+  - interactive list
 ---
 
 # ListBox
 
-The `ListBox` component is a list component that implements part
-the [Aria 1.2 ListBox specs](https://www.w3.org/TR/wai-aria-practices-1.2/#Listbox). It presents
-a list of options and allows users to select one or more of them. Through composition, it is
-possible to customize the presentation of these lists by using sections, headers or custom elements.
+The `ListBox` component is a list component that implements part the [Aria 1.2 ListBox specs](https://www.w3.org/TR/wai-aria-practices-1.2/#Listbox). It presents a list of options and allows users to select one or more of them. Through composition, it is possible to customize the presentation of these lists by using sections, headers or custom elements.
 
 ---
 
@@ -19,7 +17,7 @@ possible to customize the presentation of these lists by using sections, headers
 
 ListBoxes should:
 
-- Be clearly labeled so it’s obvious to the merchant what type of options will be available
+- Be clearly labeled so it’s noticeable to the merchant what type of options will be available
 - Limit the number of options displayed at once
 - Indicate a loading state to the merchant while option data is being populated
 
@@ -35,11 +33,11 @@ Each item in an `ListBox` should be clear and descriptive.
 
 #### Do
 
-- Traffic referrer source
+- Use labels
 
 #### Don’t
 
-- Source
+- Use interactive elements inside the list
 
 <!-- end -->
 
@@ -49,8 +47,10 @@ Each item in an `ListBox` should be clear and descriptive.
 
 ### Basic ListBox
 
+Basic implementation of a control element used to let merchants select options
+
 ```jsx
-function baseListBoxExample() {
+function BaseListBoxExample() {
   return (
     <ListBox>
       <ListBox.Option value="UniqueValue-1">Item 1</ListBox.Option>
@@ -63,8 +63,10 @@ function baseListBoxExample() {
 
 ### ListBox with Section
 
+Implementation of a control element used to let merchants select options that are grouped into named sections
+
 ```jsx
-function listBoxWithSectionExample() {
+function ListBoxWithSectionExample() {
   return (
     <ListBox>
       <ListBox.Section title={<ListBox.Header>Section Header</ListBox.Header>}>
@@ -79,8 +81,10 @@ function listBoxWithSectionExample() {
 
 ### ListBox with Loading
 
+Implementation of a control element showing a loading indicator to let merchants know more options are being loaded
+
 ```jsx
-function listBoxWithLoadingExample() {
+function ListBoxWithLoadingExample() {
   return (
     <ListBox>
       <ListBox.Option value="UniqueValue-1">Item 1</ListBox.Option>
@@ -94,8 +98,10 @@ function listBoxWithLoadingExample() {
 
 ### ListBox with Action
 
+Implementation of a control element used to let merchants take an action
+
 ```jsx
-function listBoxWithActionExample() {
+function ListBoxWithActionExample() {
   return (
     <ListBox>
       <ListBox.Action value="ActionValue" divider>
@@ -110,8 +116,10 @@ function listBoxWithActionExample() {
 
 ### ListBox with custom element
 
+Implementation of a control with custom rendering of options
+
 ```jsx
-function listBoxWithCustomElementExample() {
+function ListBoxWithCustomElementExample() {
   return (
     <ListBox>
       <ListBox.Action value="ActionValue" divider>

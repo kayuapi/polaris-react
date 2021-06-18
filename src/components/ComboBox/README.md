@@ -19,7 +19,7 @@ The `ComboBox` component is a component that implements part of the [Aria 1.2 co
 
 The ComboBox component should:
 
-- Be clearly labeled so it’s obvious to the merchant what type of options will be available
+- Be clearly labeled so it’s noticeable to the merchant what type of options will be available
 - Not be used within a popover
 - Indicate a loading state to the merchant while option data is being populated
 
@@ -395,27 +395,26 @@ See Apple’s Human Interface Guidelines and API documentation about accessibili
 
 ### Structure
 
-The `ComboBox` component is based on the [ARIA 1.2 combobox pattern](https://www.w3.org/TR/wai-aria-practices-1.1/#combobox). It is a combination of a single-line
-`TextField` and a `Popover`. The current implementation expects a [`ListBox`] component to be used.
+The `ComboBox` component is based on the [ARIA 1.2 combobox pattern](https://www.w3.org/TR/wai-aria-practices-1.1/#combobox). It is a combination of a single-line `TextField` and a `Popover`. The current implementation expects a [`ListBox`] component to be used.
 
 The `ComboBox` popover displays below the text field or other control by default so it is easy for merchants to discover and use. However, you can change the position with the `preferredPosition` prop.
 
-ComboBox features can be challenging for merchants with visual, motor, and cognitive disabilities. Even when they’re built using best practices, these features can be difficult to use with some assistive technologies. Merchants should always be able to search, enter data, or perform other activities without relying on the combobox.
+`ComboBox` features can be challenging for merchants with visual, motor, and cognitive disabilities. Even when they’re built using best practices, these features can be difficult to use with some assistive technologies. Merchants should always be able to search, enter data, or perform other activities without relying on the combobox.
 
 <!-- usageblock -->
 
 #### Do
 
-Use combobox as progressive enhancement to make the interface easier to use for most merchants.
+- Use combobox as progressive enhancement to make the interface easier to use for most merchants.
 
 #### Don’t
 
-Require that merchants make a selection from the combobox to complete a task.
+- Require that merchants make a selection from the combobox to complete a task.
 
 <!-- end -->
 
 ### Keyboard support
 
-- Give the combobox text input keyboard focus with the <kbd>tab</kbd> key (or <kbd>shift</kbd> + <kbd>tab</kbd> when tabbing backwards)
+- Give the combobox's text input keyboard focus with the <kbd>tab</kbd> key (or <kbd>shift</kbd> + <kbd>tab</kbd> when tabbing backwards)
 
 <!-- /content-for -->

@@ -11,7 +11,7 @@ keywords:
 
 # Autocomplete
 
-The autocomplete component is an input field that provides selectable suggestions as a merchant types into it. It allows merchants to quickly search through and select from large collections of options. Convenience wrapper around the `ComboBox` and `ListBox` components with minor UI differences.
+The autocomplete component is an input field that provides selectable suggestions as a merchant types into it. It allows merchants to quickly search through and select from large collections of options. It's a convenience wrapper around the `ComboBox` and `ListBox` components with minor UI differences.
 
 ---
 
